@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERASMUS+ KA153 — Antalya, Turquie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@1,500;1,600&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#E8456A;
+    --pink-deep:#D4335A;
+    --pink-tint:#FBDCE2;
+    --mustard:#F0A430;
+    --mustard-tint:#FCE6BE;
+    --black:#131313;
+    --cream:#FBF6EC;
+    --cream-alt:#F3ECDC;
+    --line:rgba(19,19,19,.12);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--black);
+    font-family:'Work Sans',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.01em;}
+  .accent{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  a{color:inherit;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--cream);
+    border-bottom:3px solid var(--black);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .nav-brand{display:flex;align-items:center;gap:10px;font-family:'Anton',sans-serif;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase;}
+  .nav-brand .dot{width:12px;height:12px;border-radius:50%;background:var(--pink);}
+  .nav-links{display:flex;gap:26px;font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;}
+  .nav-links a{text-decoration:none;position:relative;padding:4px 0;}
+  .nav-links a:hover{color:var(--pink-deep);}
+  .nav-cta{
+    background:var(--black);color:var(--cream);
+    font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+    padding:10px 18px;border-radius:999px;text-decoration:none;white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--pink-deep);}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;}
+  @media(max-width:840px){
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;padding:64px 0 40px;}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--black);color:var(--cream);
+    font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 14px;border-radius:999px;margin-bottom:28px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.5fr .5fr;gap:48px;align-items:center;}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(3.4rem,9vw,6.2rem);line-height:.86;color:var(--black);}
+  .hero h1 .line2{color:var(--pink);}
+  .hero-sub{font-size:clamp(1.6rem,3vw,2.1rem);margin-top:10px;}
+  .hero-sub .accent{color:var(--black);}
+  .hero-tag{margin-top:22px;font-size:1.02rem;letter-spacing:.04em;text-transform:uppercase;font-weight:700;color:var(--pink-deep);}
+  .hero-desc{margin-top:20px;max-width:44ch;font-size:1.05rem;color:#3a3a3a;}
+  .hero-btnrow{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;font-weight:700;text-decoration:none;
+    padding:15px 28px;border-radius:999px;font-size:.92rem;letter-spacing:.02em;
+    border:2px solid var(--black);
+  }
+  .btn-primary{background:var(--pink);color:var(--black);}
+  .btn-primary:hover{background:var(--pink-deep);color:var(--cream);}
+  .btn-ghost{background:transparent;color:var(--black);}
+  .btn-ghost:hover{background:var(--black);color:var(--cream);}
+
+  /* hero visual: SVG coastline in flyer arc-style */
+  .hero-visual{position:relative;aspect-ratio:1/1.3;max-width:280px;margin-left:auto;border-radius:0 999px 999px 999px;overflow:hidden;background:var(--pink);}
+  .hero-visual svg{position:absolute;inset:0;width:100%;height:100%;}
+  .hero-badge{
+    position:absolute;bottom:-18px;left:-18px;
+    background:var(--mustard);border:3px solid var(--black);border-radius:50%;
+    width:118px;height:118px;display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:'Anton',sans-serif;font-size:.78rem;line-height:1.15;text-transform:uppercase;
+    transform:rotate(-8deg);
+  }
+  @media(max-width:900px){.hero-visual{border-radius:32px;} .hero-badge{left:16px;}}
+
+  /* ---------- GLANCE STRIP ---------- */
+  .glance{background:var(--black);color:var(--cream);padding:34px 0;}
+  .glance-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;}
+  @media(max-width:900px){.glance-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:520px){.glance-grid{grid-template-columns:repeat(2,1fr);}}
+  .glance-item{text-align:center;padding:6px;}
+  .glance-item .ico{font-size:1.6rem;}
+  .glance-item .num{font-family:'Anton',sans-serif;font-size:1.25rem;margin-top:6px;color:var(--mustard);}
+  .glance-item .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;opacity:.75;margin-top:2px;}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:88px 0;}
+  .section-alt{background:var(--cream-alt);}
+  .eyebrow{
+    display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--pink-deep);margin-bottom:12px;
+  }
+  h2.display{font-size:clamp(2.3rem,5vw,3.6rem);line-height:.95;margin-bottom:10px;}
+  .section-intro{max-width:60ch;color:#3a3a3a;font-size:1.05rem;margin-bottom:44px;}
+
+  /* ---------- OBJECTIVES ---------- */
+  .obj-list{display:flex;flex-direction:column;border-top:2px solid var(--black);}
+  .obj-row{display:grid;grid-template-columns:90px 1fr;gap:24px;padding:22px 0;border-bottom:2px solid var(--black);align-items:start;}
+  .obj-row .obj-num{font-family:'Anton',sans-serif;font-size:2rem;color:var(--pink);}
+  .obj-row p{font-size:1.02rem;max-width:62ch;}
+  .obj-row strong{background:linear-gradient(transparent 60%, var(--mustard-tint) 60%);}
+
+  /* ---------- COUNTRIES ---------- */
+  .countries{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:800px){.countries{grid-template-columns:repeat(2,1fr);}}
+  .country-card{
+    background:var(--cream);border:2.5px solid var(--black);border-radius:20px;
+    padding:26px 20px;text-align:center;
+  }
+  .country-card .flag{font-size:2.4rem;}
+  .country-card h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.15rem;margin:12px 0 8px;}
+  .country-card p{font-size:.85rem;color:#4a4a4a;}
+
+  /* ---------- PROGRAMME CARDS (3 col, from flyer) ---------- */
+  .prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media(max-width:840px){.prog-grid{grid-template-columns:1fr;}}
+  .prog-card h3{
+    font-size:1.15rem;font-weight:800;margin-bottom:14px;color:var(--pink-deep);
+    display:flex;align-items:center;gap:10px;
+  }
+  .prog-card h3 .ico{
+    width:38px;height:38px;border-radius:50%;background:var(--pink-tint);
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+  }
+  .prog-card ul{list-style:none;}
+  .prog-card li{position:relative;padding-left:20px;margin-bottom:10px;font-size:.95rem;color:#333;}
+  .prog-card li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--mustard);}
+  .prog-card.mid{background:var(--black);color:var(--cream);border-radius:22px;padding:30px;}
+  .prog-card.mid h3{color:var(--mustard);}
+  .prog-card.mid p{font-size:.95rem;color:#ddd;}
+
+  /* ---------- DATES / INFO PANEL ---------- */
+  .info-panel{
+    background:var(--cream);border:3px solid var(--black);border-radius:26px;
+    padding:38px;display:grid;grid-template-columns:repeat(2,1fr);gap:28px 40px;
+  }
+  @media(max-width:640px){.info-panel{grid-template-columns:1fr;}}
+  .info-row{display:flex;gap:16px;align-items:flex-start;}
+  .info-row .circ{
+    width:46px;height:46px;border-radius:50%;flex-shrink:0;
+    background:var(--pink-tint);display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  }
+  .info-row h4{font-family:'Anton',sans-serif;font-size:.95rem;text-transform:uppercase;letter-spacing:.03em;margin-bottom:4px;}
+  .info-row p{font-size:.92rem;color:#333;}
+
+  /* ---------- COVERED (budget) ---------- */
+  .covered-banner{background:var(--black);color:var(--cream);border-radius:22px;padding:34px 38px;margin-bottom:30px;}
+  .covered-banner h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.5rem;line-height:1.1;}
+  .covered-banner h3 span{color:var(--mustard);}
+  .covered-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  @media(max-width:800px){.covered-grid{grid-template-columns:repeat(2,1fr);}}
+  .covered-item{
+    background:var(--cream);border:2px solid var(--black);border-radius:16px;
+    padding:20px 14px;text-align:center;
+  }
+  .covered-item .ico{
+    width:46px;height:46px;border-radius:50%;background:var(--mustard);margin:0 auto 10px;
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;border:2px solid var(--black);
+  }
+  .covered-item p{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.02em;}
+
+  /* ---------- ENGLISH LEVELS ---------- */
+  .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:700px){.levels{grid-template-columns:1fr;}}
+  .level-card{border:2.5px solid var(--black);border-radius:20px;padding:26px;background:var(--cream);}
+  .level-card .tag{
+    display:inline-block;font-family:'Anton',sans-serif;font-size:1.6rem;color:var(--pink);
+  }
+  .level-card h4{font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin:6px 0 4px;}
+  .level-card p{font-size:.85rem;color:#4a4a4a;}
+
+  /* ---------- ELIGIBILITY CHECKLIST ---------- */
+  .elig-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;}
+  @media(max-width:700px){.elig-grid{grid-template-columns:1fr;}}
+  .elig-item{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line);}
+  .elig-item .check{
+    width:26px;height:26px;border-radius:50%;background:var(--mustard);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;border:2px solid var(--black);
+  }
+  .elig-item p{font-size:.94rem;}
+
+  /* ---------- CTA / PLACES ---------- */
+  .places-cta{
+    background:var(--pink);border-radius:28px;padding:52px 44px;
+    display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center;
+  }
+  @media(max-width:800px){.places-cta{grid-template-columns:1fr;text-align:center;}}
+  .places-cta .big-num{font-family:'Anton',sans-serif;font-size:5.5rem;line-height:.8;color:var(--black);}
+  .places-cta .big-lbl{font-family:'Anton',sans-serif;font-size:1.1rem;text-transform:uppercase;color:var(--black);}
+  .places-cta .mid p{font-size:1.02rem;font-weight:600;max-width:38ch;}
+  .places-cta .mid p+p{margin-top:6px;}
+
+  /* ---------- TEAM ---------- */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  @media(max-width:800px){.team-grid{grid-template-columns:1fr;}}
+  .team-card{text-align:center;}
+  .team-avatar{
+    width:110px;height:110px;border-radius:50%;margin:0 auto 16px;
+    background:var(--pink-tint);border:3px solid var(--black);
+    display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-family:'Anton',sans-serif;color:var(--pink-deep);
+  }
+  .team-card h4{font-size:1.05rem;font-weight:800;}
+  .team-card p{font-size:.85rem;color:#666;text-transform:uppercase;letter-spacing:.04em;margin-top:2px;}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{background:var(--black);color:var(--cream);padding:64px 0 30px;}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;margin-bottom:50px;}
+  @media(max-width:800px){.foot-grid{grid-template-columns:1fr;gap:32px;}}
+  footer h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.8rem;margin-bottom:14px;}
+  footer h3 span{color:var(--mustard);}
+  footer .foot-desc{font-size:.92rem;color:#bbb;max-width:36ch;}
+  footer h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mustard);margin-bottom:14px;}
+  footer a{text-decoration:none;color:#ddd;font-size:.92rem;display:block;margin-bottom:10px;}
+  footer a:hover{color:var(--pink);}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.15);padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:.78rem;color:#888;
+  }
+
+  .fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .fade-in.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-brand"><span class="dot"></span>Apprendre l'Anglais Marseille</div>
+    <nav class="nav-links">
+      <a href="#accueil">Accueil</a>
+      <a href="#projet">Projet</a>
+      <a href="#programme">Programme</a>
+      <a href="#pratique">Infos pratiques</a>
+      <a href="#equipe">Équipe</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Candidater</a>
+  </div>
+</header>
+
+<section class="hero" id="accueil">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-eyebrow">🇪🇺 Erasmus+ · KA153</span>
+      <h1 class="display">Antalya<br><span class="line2">Turquie</span></h1>
+      <p class="hero-sub">Une <span class="accent">mobilité internationale</span></p>
+      <p class="hero-tag">Économie circulaire · Durabilité · Numérique</p>
+      <p class="hero-desc">7 jours de formation, d'échanges et d'activités pratiques autour de l'économie circulaire, de la durabilité et du numérique — avec des travailleurs jeunesse venus de toute l'Europe.</p>
+      <div class="hero-btnrow">
+        <a class="btn btn-primary" href="#contact">Candidater maintenant</a>
+        <a class="btn btn-ghost" href="#pratique">Infos pratiques</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 400 420" preserveAspectRatio="xMidYMid slice">
+        <rect width="400" height="420" fill="#F0A430"/>
+        <circle cx="320" cy="70" r="46" fill="#FBF6EC" opacity=".9"/>
+        <path d="M0 260 C 80 210, 160 300, 240 240 C 300 200, 350 250, 400 220 L 400 420 L 0 420 Z" fill="#E8456A"/>
+        <path d="M0 320 C 90 280, 170 350, 260 300 C 320 270, 360 310, 400 290 L 400 420 L 0 420 Z" fill="#131313"/>
+        <path d="M60 420 L100 300 L140 420 Z" fill="#131313" opacity=".85"/>
+        <path d="M40 420 L70 340 L100 420 Z" fill="#131313" opacity=".65"/>
+      </svg>
+      <div class="hero-badge">28 OCT — 4 NOV 2026</div>
+    </div>
+  </div>
+</section>
+
+<div class="glance">
+  <div class="wrap glance-grid">
+    <div class="glance-item"><div class="ico">📅</div><div class="num">27 OCT</div><div class="lbl">Départ</div></div>
+    <div class="glance-item"><div class="ico">📍</div><div class="num">Antalya</div><div class="lbl">Turquie</div></div>
+    <div class="glance-item"><div class="ico">👥</div><div class="num">6</div><div class="lbl">Places</div></div>
+    <div class="glance-item"><div class="ico">🎂</div><div class="num">20—50</div><div class="lbl">Ans</div></div>
+    <div class="glance-item"><div class="ico">♻️</div><div class="num">7 jours</div><div class="lbl">Formation</div></div>
+    <div class="glance-item"><div class="ico">🇪🇺</div><div class="num">KA153</div><div class="lbl">Erasmus+</div></div>
+  </div>
+</div>
+
+<section id="projet">
+  <div class="wrap">
+    <span class="eyebrow">♻️ Le projet</span>
+    <h2 class="display">Pourquoi partir ?</h2>
+    <p class="section-intro">Cette mobilité Erasmus+ KA153 réunit des travailleurs jeunesse autour de l'économie circulaire et de la transformation numérique — sept jours pour apprendre, créer des ressources concrètes et vivre une vraie expérience interculturelle.</p>
+
+    <div class="obj-list">
+      <div class="obj-row">
+        <div class="obj-num">01</div>
+        <p><strong>Ateliers d'éco-conception et de réparation</strong> — comprendre les principes du droit à la réparation et de l'écoconception à travers des mises en situation concrètes.</p>
+      </div>
+      <div class="obj-row">
+        <div class="obj-num">02</div>
+        <p><strong>Cartographie des déchets et solutions concrètes</strong> — explorer des méthodes de terrain pour identifier et réduire les déchets à l'échelle locale.</p>
+      </div>
+      <div class="obj-row">
+        <div class="obj-num">03</div>
+        <p><strong>Découverte des politiques européennes</strong> — droit à la réparation, écoconception, lutte contre le greenwashing.</p>
+      </div>
+      <div class="obj-row">
+        <div class="obj-num">04</div>
+        <p><strong>Création de contenus numériques</strong> — prise en main d'outils comme Canva et Padlet pour valoriser les projets de terrain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <span class="eyebrow">🌍 Participants</span>
+    <h2 class="display">Une équipe européenne</h2>
+    <p class="section-intro">6 places sont disponibles pour cette mobilité, réparties entre plusieurs pays partenaires — une occasion unique d'échanger avec des pairs venus d'horizons différents.</p>
+    <div class="countries">
+      <div class="country-card"><div class="flag">🇫🇷</div><h3>France</h3><p>3 participantes + 3 participants</p></div>
+      <div class="country-card"><div class="flag">🇹🇷</div><h3>Turquie</h3><p>Pays hôte de la formation</p></div>
+      <div class="country-card"><div class="flag">🇪🇸</div><h3>Espagne</h3><p>Organisation partenaire</p></div>
+      <div class="country-card"><div class="flag">🇸🇮</div><h3>Slovénie</h3><p>Organisation partenaire</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="programme">
+  <div class="wrap">
+    <span class="eyebrow">📋 Au programme</span>
+    <h2 class="display">Ce que vous allez vivre</h2>
+    <p class="section-intro">Sept jours structurés autour de trois piliers : apprendre, créer et échanger.</p>
+    <div class="prog-grid">
+      <div class="prog-card">
+        <h3><span class="ico">🌿</span>Au programme</h3>
+        <ul>
+          <li>Ateliers d'éco-conception et de réparation</li>
+          <li>Cartographie des déchets et solutions concrètes</li>
+          <li>Découverte des politiques européennes : droit à la réparation, écoconception, lutte contre le greenwashing</li>
+          <li>Création de contenus numériques (Canva, Padlet…)</li>
+        </ul>
+      </div>
+      <div class="prog-card mid">
+        <h3>🧰 Boîte à outils</h3>
+        <p>Ensemble, les participants créeront une <strong>« Circular Youth Work Toolbox »</strong> : des ressources et activités utiles aux professionnels de la jeunesse et aux jeunes dans leurs projets locaux.</p>
+      </div>
+      <div class="prog-card">
+        <h3><span class="ico">🌐</span>Une expérience enrichissante</h3>
+        <ul>
+          <li>Découvrir la Turquie</li>
+          <li>Rencontrer des participants internationaux</li>
+          <li>Développer de nouvelles compétences</li>
+          <li>Approfondir ses connaissances sur la durabilité et l'économie circulaire</li>
+          <li>Vivre une expérience européenne et interculturelle</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="pratique">
+  <div class="wrap">
+    <span class="eyebrow">ℹ️ Infos pratiques</span>
+    <h2 class="display">Dates & conditions</h2>
+    <div class="info-panel">
+      <div class="info-row"><div class="circ">📅</div><div><h4>Départ</h4><p>27 octobre 2026</p></div></div>
+      <div class="info-row"><div class="circ">♻️</div><div><h4>Formation</h4><p>Du 28 octobre au 3 novembre 2026</p></div></div>
+      <div class="info-row"><div class="circ">🛬</div><div><h4>Retour</h4><p>4 novembre 2026</p></div></div>
+      <div class="info-row"><div class="circ">📍</div><div><h4>Lieu</h4><p>Antalya, Turquie</p></div></div>
+      <div class="info-row"><div class="circ">🎂</div><div><h4>Âge</h4><p>De 20 à 50 ans</p></div></div>
+      <div class="info-row"><div class="circ">👥</div><div><h4>Places disponibles</h4><p>6 places — 3 participantes / 3 participants</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="covered-banner">
+      <h3>Tout est pris en charge<br>dans le cadre du <span>projet Erasmus+</span></h3>
+    </div>
+    <div class="covered-grid">
+      <div class="covered-item"><div class="ico">✈️</div><p>Billet d'avion aller-retour</p></div>
+      <div class="covered-item"><div class="ico">🚌</div><p>Transports locaux</p></div>
+      <div class="covered-item"><div class="ico">🏨</div><p>Hébergement</p></div>
+      <div class="covered-item"><div class="ico">🍽️</div><p>Repas</p></div>
+      <div class="covered-item"><div class="ico">🎓</div><p>Formation et activités</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <span class="eyebrow">🗣️ Niveau d'anglais</span>
+    <h2 class="display">Test obligatoire</h2>
+    <p class="section-intro">Un niveau d'anglais intermédiaire minimum est requis pour participer pleinement à la formation.</p>
+    <div class="levels">
+      <div class="level-card"><span class="tag">B1</span><h4>Intermédiaire</h4><p>Score 550 – 780</p></div>
+      <div class="level-card"><span class="tag">B2</span><h4>Intermédiaire supérieur</h4><p>Score 785 – 940</p></div>
+      <div class="level-card"><span class="tag">C1</span><h4>Avancé</h4><p>Score 945 – 990</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">🙋 Éligibilité</span>
+    <h2 class="display">Qui peut participer ?</h2>
+    <div class="elig-grid">
+      <div class="elig-item"><div class="check">✓</div><p>Avoir entre 20 et 50 ans</p></div>
+      <div class="elig-item"><div class="check">✓</div><p>Être actif comme travailleur jeunesse, bénévole, animateur ou formateur</p></div>
+      <div class="elig-item"><div class="check">✓</div><p>S'intéresser à la durabilité et à l'économie circulaire</p></div>
+      <div class="elig-item"><div class="check">✓</div><p>Être motivé par l'apprentissage non-formel et le travail d'équipe</p></div>
+      <div class="elig-item"><div class="check">✓</div><p>Avoir un niveau d'anglais intermédiaire (B1 minimum)</p></div>
+      <div class="elig-item"><div class="check">✓</div><p>Être disponible sur toute la durée de la mobilité</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="places-cta">
+      <div>
+        <div class="big-num">6</div>
+        <div class="big-lbl">Places</div>
+      </div>
+      <div class="mid">
+        <p>Candidatures ouvertes dès maintenant.</p>
+        <p>Départ le 27 octobre 2026 — ne tardez pas à postuler.</p>
+      </div>
+      <a class="btn" style="background:var(--black);color:var(--cream);border-color:var(--black);" href="#contact">Je candidate →</a>
+    </div>
+  </div>
+</section>
+
+<section id="equipe">
+  <div class="wrap">
+    <span class="eyebrow">👥 L'équipe</span>
+    <h2 class="display">Qui vous accompagne</h2>
+    <p class="section-intro">Apprendre l'Anglais Marseille pilote la sélection et l'accompagnement des participants tout au long du projet.</p>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-avatar">AL</div><h4>Référent projet</h4><p>Coordination</p></div>
+      <div class="team-card"><div class="team-avatar">MB</div><h4>Accompagnement</h4><p>Suivi des candidats</p></div>
+      <div class="team-card"><div class="team-avatar">SK</div><h4>Logistique</h4><p>Voyage & hébergement</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Apprendre l'<span>Anglais</span> Marseille</h3>
+        <p class="foot-desc">Organisation partenaire du projet Erasmus+ KA153 « Antalya, Turquie » — mobilité internationale pour les travailleurs jeunesse.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <a href="#projet">Le projet</a>
+        <a href="#programme">Programme</a>
+        <a href="#pratique">Infos pratiques</a>
+        <a href="#equipe">Équipe</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="#">📧 contact@apprendrelanglaismarseille.fr</a>
+        <a href="#">📸 Instagram</a>
+        <a href="#">📝 Formulaire de candidature</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Erasmus+ KA153 · Antalya, Turquie · 28 octobre – 4 novembre 2026</span>
+      <span>Ce projet est financé par l'Union européenne dans le cadre du programme Erasmus+.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('section, .obj-row, .country-card, .level-card');
+  els.forEach(el => el.classList.add('fade-in'));
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  els.forEach(el=>io.observe(el));
+
+  document.querySelectorAll('.nav-links a, .btn').forEach(a=>{
+    a.addEventListener('click', function(e){
+      const href = this.getAttribute('href');
+      if(href && href.startsWith('#')){
+        const target = document.querySelector(href);
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+      }
+    });
+  });
+</script>
+</body>
+</html>
